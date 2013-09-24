@@ -134,15 +134,15 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-//    startPos = scrollView.contentOffset;
-//    NSLog(@"startPoint=%f,%f",startPos.x,startPos.y);
-//    scrollDirection=0;
+    startPos = scrollView.contentOffset;
+    NSLog(@"startPoint=%f,%f",startPos.x,startPos.y);
+    scrollDirection=0;
     NSLog(@"drag scrollview num=%i",scrollView.pagingEnabled);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scroll {
     [self initShow];
-    
+    endPos = scroll.contentOffset;
 //    if (scrollDirection==0){//we need to determine direction
 //        //use the difference between positions to determine the direction.
 //        if (abs(startPos.x-scrollView.contentOffset.x)<abs(startPos.y-scrollView.contentOffset.y)){
@@ -165,25 +165,34 @@
 //    }
 }
 
-//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
 //    //not called when pageEnable=YES (?
 //    NSLog(@"enter WillEndDragging");
 //    NSLog(@"targetOffset:x=%f,y=%f",targetContentOffset->x,targetContentOffset->y);
 //    targetContentOffset->x = pageControl.currentPage * 320;
 //    //targetContentOffset->y = startPos.y;
-//}
-//
-//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+}
+
+- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
 //    if (decelerate) {
 //        scrollDirection=3;
 //    }
 //    NSLog(@"EndDragOffset:x=%f,y=%f,decelerate=%i",scrollView.contentOffset.x,scrollView.contentOffset.y,decelerate);
 //    //if (!decelerate) { scrollDirection=0; }
-//}
-//
-//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-//    
-//}
+    
+    //scroll not enough
+//    NSLog(@"%f",endPos.x - 320 * pageControl.currentPage);
+//    if (endPos.x - 320 * pageControl.currentPage < 160) {
+//        [parentScrollView setContentOffset:CGPointMake(320 * pageControl.currentPage, 0) animated:YES];
+//    }else {
+//        pageControl.currentPage = pageControl.currentPage+1;
+//        [parentScrollView setContentOffset:CGPointMake(320 * pageControl.currentPage, 0) animated:YES];
+//    }
+}
+
+- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+    
+}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scroll {
     NSLog(@"enter EndDecelerateing");
