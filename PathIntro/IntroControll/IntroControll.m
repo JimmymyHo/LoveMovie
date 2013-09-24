@@ -22,25 +22,36 @@
         [backgroundImage2 setAutoresizingMask:UIViewAutoresizingFlexibleHeight | UIViewAutoresizingFlexibleWidth];
         [self addSubview:backgroundImage2];
         
-        //Initial shadow
-        UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shadow.png"]];
-        shadowImageView.contentMode = UIViewContentModeScaleToFill;
-        shadowImageView.frame = CGRectMake(0, frame.size.height-300, frame.size.width, 300);
-        [self addSubview:shadowImageView];
+//        //Initial shadow
+//        UIImageView *shadowImageView = [[UIImageView alloc] initWithImage:[UIImage imageNamed:@"shadow.png"]];
+//        shadowImageView.contentMode = UIViewContentModeScaleToFill;
+//        shadowImageView.frame = CGRectMake(0, frame.size.height-300, frame.size.width, 300);
+//        [self addSubview:shadowImageView];
+        
+        //Create pages
+        pages = pagesArray;
+        
+        //Initial parent ScrollView
+        parentScrollView = [[UIScrollView alloc] initWithFrame:self.frame];
+        parentScrollView.backgroundColor = [UIColor clearColor];
+        parentScrollView.pagingEnabled = YES;
+        parentScrollView.showsHorizontalScrollIndicator = NO;
+        parentScrollView.showsVerticalScrollIndicator = NO;
+        parentScrollView.delegate = self;
+        [parentScrollView setDirectionalLockEnabled:YES];
+        [self addSubview:parentScrollView];
+        
+        parentScrollView.contentSize = CGSizeMake(pages.count * frame.size.width, 720);
         
         //Initial ScrollView
         scrollView = [[UIScrollView alloc] initWithFrame:self.frame];
-        
-//        scrollView.frame =
-//        CGRectMake(self.frame.origin.x, self.frame.origin.y, self.frame.size.width, 1);
-        
         scrollView.backgroundColor = [UIColor clearColor];
-        scrollView.pagingEnabled = YES;
+        scrollView.pagingEnabled = NO;
         scrollView.showsHorizontalScrollIndicator = NO;
         scrollView.showsVerticalScrollIndicator = NO;
         scrollView.delegate = self;
-        //[scrollView setDirectionalLockEnabled:YES];
-        [self addSubview:scrollView];
+        [scrollView setDirectionalLockEnabled:YES];
+        [parentScrollView addSubview:scrollView];
         
         //Initial PageView
         pageControl = [[UIPageControl alloc] init];
@@ -49,10 +60,7 @@
         [pageControl setCenter:CGPointMake(frame.size.width/2.0, frame.size.height-50)];
         [self addSubview:pageControl];
         
-        //Create pages
-        pages = pagesArray;
-        
-        scrollView.contentSize = CGSizeMake(pages.count * frame.size.width, 720);
+        scrollView.contentSize = CGSizeMake(self.frame.size.width, 720);
         
         currentPhotoNum = -1;
         
@@ -60,7 +68,7 @@
         for(int i = 0; i <  pages.count; i++) {
             IntroView *view = [[IntroView alloc] initWithFrame:frame model:[pages objectAtIndex:i]];
             view.frame = CGRectOffset(view.frame, i*frame.size.width, 0);
-            [scrollView addSubview:view];
+            [parentScrollView addSubview:view];
         }
             
         //start timer
@@ -126,55 +134,56 @@
 }
 
 - (void)scrollViewWillBeginDragging:(UIScrollView *)scrollView{
-    startPos = scrollView.contentOffset;
-    NSLog(@"startPoint=%f,%f",startPos.x,startPos.y);
-    scrollDirection=0;
+//    startPos = scrollView.contentOffset;
+//    NSLog(@"startPoint=%f,%f",startPos.x,startPos.y);
+//    scrollDirection=0;
+    NSLog(@"drag scrollview num=%i",scrollView.pagingEnabled);
 }
 
 - (void)scrollViewDidScroll:(UIScrollView *)scroll {
     [self initShow];
     
-    if (scrollDirection==0){//we need to determine direction
-        //use the difference between positions to determine the direction.
-        if (abs(startPos.x-scrollView.contentOffset.x)<abs(startPos.y-scrollView.contentOffset.y)){
-            NSLog(@"Vertical Scrolling");
-            scrollDirection=1;
-            
-        } else {
-            NSLog(@"Horitonzal Scrolling");
-            scrollDirection=2;
-            
-        }
-    }
-    //Update scroll position of the scrollview according to detected direction.
-    if (scrollDirection==1) {
-        [scrollView setContentOffset:CGPointMake(startPos.x,scrollView.contentOffset.y) animated:NO];
-        scrollView.pagingEnabled = NO;
-    } else if (scrollDirection==2){
-        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x,startPos.y) animated:NO];
-        scrollView.pagingEnabled = YES;
-    }
+//    if (scrollDirection==0){//we need to determine direction
+//        //use the difference between positions to determine the direction.
+//        if (abs(startPos.x-scrollView.contentOffset.x)<abs(startPos.y-scrollView.contentOffset.y)){
+//            NSLog(@"Vertical Scrolling");
+//            scrollDirection=1;
+//            
+//        } else {
+//            NSLog(@"Horitonzal Scrolling");
+//            scrollDirection=2;
+//            
+//        }
+//    }
+//    //Update scroll position of the scrollview according to detected direction.
+//    if (scrollDirection==1) {
+//        [scrollView setContentOffset:CGPointMake(startPos.x,scrollView.contentOffset.y) animated:NO];
+//        scrollView.pagingEnabled = NO;
+//    } else if (scrollDirection==2){
+//        [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x,startPos.y) animated:NO];
+//        scrollView.pagingEnabled = YES;
+//    }
 }
 
-- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
-    //not called when pageEnable=YES (?
-    NSLog(@"enter WillEndDragging");
-    NSLog(@"targetOffset:x=%f,y=%f",targetContentOffset->x,targetContentOffset->y);
-    targetContentOffset->x = pageControl.currentPage * 320;
-    //targetContentOffset->y = startPos.y;
-}
-
-- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
-    if (decelerate) {
-        scrollDirection=3;
-    }
-    NSLog(@"EndDragOffset:x=%f,y=%f,decelerate=%i",scrollView.contentOffset.x,scrollView.contentOffset.y,decelerate);
-    //if (!decelerate) { scrollDirection=0; }
-}
-
-- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
-    
-}
+//- (void)scrollViewWillEndDragging:(UIScrollView *)scrollView withVelocity:(CGPoint)velocity targetContentOffset:(inout CGPoint *)targetContentOffset {
+//    //not called when pageEnable=YES (?
+//    NSLog(@"enter WillEndDragging");
+//    NSLog(@"targetOffset:x=%f,y=%f",targetContentOffset->x,targetContentOffset->y);
+//    targetContentOffset->x = pageControl.currentPage * 320;
+//    //targetContentOffset->y = startPos.y;
+//}
+//
+//- (void)scrollViewDidEndDragging:(UIScrollView *)scrollView willDecelerate:(BOOL)decelerate{
+//    if (decelerate) {
+//        scrollDirection=3;
+//    }
+//    NSLog(@"EndDragOffset:x=%f,y=%f,decelerate=%i",scrollView.contentOffset.x,scrollView.contentOffset.y,decelerate);
+//    //if (!decelerate) { scrollDirection=0; }
+//}
+//
+//- (void)scrollViewWillBeginDecelerating:(UIScrollView *)scrollView {
+//    
+//}
 
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scroll {
     NSLog(@"enter EndDecelerateing");
@@ -186,8 +195,8 @@
     }
     [self initShow];
     NSLog(@"EndDecelOffset:x=%f,y=%f",scrollView.contentOffset.x,scrollView.contentOffset.y);
-    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x,startPos.y)
-                        animated:YES];
+//    [scrollView setContentOffset:CGPointMake(scrollView.contentOffset.x,startPos.y)
+//                        animated:YES];
 }
 
 @end

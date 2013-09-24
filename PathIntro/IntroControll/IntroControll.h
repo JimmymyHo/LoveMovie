@@ -6,6 +6,7 @@
     UIImageView *backgroundImage2;
     
     UIScrollView *scrollView;
+    UIScrollView *parentScrollView;
     UIPageControl *pageControl;
     NSArray *pages;
     
