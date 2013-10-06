@@ -7,7 +7,7 @@
 //
 
 #import "MovieViewController.h"
-#import "CBG.h"
+
 
 @interface MovieViewController () {
     int pageNumber;
@@ -53,6 +53,17 @@
 
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView {
     NSLog(@"scroll offset:%f",scrollView.contentOffset.y);
+    
+    if(scrollView.contentOffset.y >= 0 && scrollView.contentOffset.y <= 250.0) {
+        float percent = (scrollView.contentOffset.y / 250.0);
+        
+        self.numberImageWithBlur.alpha = percent;
+        
+    } else if (scrollView.contentOffset.y > 250.0){
+        self.numberImageWithBlur.alpha = 1;
+    } else if (scrollView.contentOffset.y < 0) {
+        self.numberImageWithBlur.alpha = 0;
+    }
 }
 
 - (void)didReceiveMemoryWarning

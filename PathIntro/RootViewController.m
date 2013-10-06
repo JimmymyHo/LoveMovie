@@ -8,7 +8,7 @@
 
 #import "RootViewController.h"
 #import "MovieViewController.h"
-
+#import "UIImage+ImageEffects.h"
 
 @interface RootViewController ()
 
@@ -103,6 +103,8 @@
         
         //NSDictionary *numberItem = [self.movieList objectAtIndex:page];
         controller.numberImage.image = [UIImage imageNamed:@"image1.jpg"];
+        controller.numberImageWithBlur.image = [controller.numberImage.image applyLightEffect];
+        controller.numberImageWithBlur.alpha = 0;
         controller.numberTitle.text = @"全家就是米家";
     }
 }

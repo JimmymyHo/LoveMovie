@@ -14,6 +14,7 @@
 
 @property (nonatomic, strong) IBOutlet UILabel *numberTitle;
 @property (nonatomic, strong) IBOutlet UIImageView *numberImage;
+@property (nonatomic, strong) IBOutlet UIImageView *numberImageWithBlur;
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 
 - (id)initWithPageNumber:(NSUInteger)page;
