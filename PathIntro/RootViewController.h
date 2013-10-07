@@ -11,5 +11,6 @@
 @interface RootViewController : UIViewController <UIScrollViewDelegate>
 
 @property (nonatomic, strong) NSMutableArray *movieList;
+@property (nonatomic, strong) NSMutableArray *viewControllers;
 
 @end

@@ -14,7 +14,7 @@
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
-@property (nonatomic, strong) NSMutableArray *viewControllers;
+
 
 @end
 
@@ -70,6 +70,7 @@
     //
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+
 }
 
 - (void)loadScrollViewWithPage:(NSUInteger)page
@@ -80,8 +81,10 @@
     if (page >= self.movieList.count)
         return;
     
+    
     // replace the placeholder if necessary
     MovieViewController *controller = [self.viewControllers objectAtIndex:page];
+    
     if ((NSNull *)controller == [NSNull null])
     {
         //controller = [[MovieViewController alloc] initWithPageNumber:page];
@@ -107,6 +110,8 @@
         controller.numberImageWithBlur.alpha = 0;
         controller.numberTitle.text = @"全家就是米家";
     }
+    
+
 }
 
 // at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
@@ -123,6 +128,23 @@
     [self loadScrollViewWithPage:page + 1];
     
     // a possible optimization would be to unload the views+controllers which are no longer visible
+
+}
+
+- (void)scrollViewDidScroll:(UIScrollView *)scrollView {
+    
+    CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
+    NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
+    NSLog(@"page=%i",page);
+    
+    MovieViewController *nowController = [self.viewControllers objectAtIndex:page];
+    
+    for (id temp in self.viewControllers) {
+        if (temp != [NSNull null]) {
+            MovieViewController *controller = temp;
+            [controller.scrollView setContentOffset:CGPointMake(0, nowController.scrollView.contentOffset.y)];
+        }
+    }
 }
 
 - (void)gotoPage:(BOOL)animated

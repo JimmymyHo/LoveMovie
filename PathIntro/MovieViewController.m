@@ -64,6 +64,7 @@
     } else if (scrollView.contentOffset.y < 0) {
         self.numberImageWithBlur.alpha = 0;
     }
+
 }
 
 - (void)didReceiveMemoryWarning
