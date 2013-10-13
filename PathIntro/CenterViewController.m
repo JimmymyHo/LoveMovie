@@ -1,16 +1,16 @@
 //
-//  RootViewController.m
+//  CenterViewController.m
 //  LoveMovie
 //
 //  Created by Ho Jimmy on 13/10/3.
 //  Copyright (c) 2013年 Dmitry Kondratyev. All rights reserved.
 //
 
-#import "RootViewController.h"
+#import "CenterViewController.h"
 #import "MovieViewController.h"
 #import "UIImage+ImageEffects.h"
 
-@interface RootViewController ()
+@interface CenterViewController ()
 
 @property (nonatomic, strong) IBOutlet UIScrollView *scrollView;
 @property (nonatomic, strong) IBOutlet UIPageControl *pageControl;
@@ -18,7 +18,7 @@
 
 @end
 
-@implementation RootViewController
+@implementation CenterViewController
 
 - (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil
 {
@@ -162,6 +162,86 @@
     bounds.origin.y = 0;
     [self.scrollView scrollRectToVisible:bounds animated:animated];
 }
+
+- (IBAction)btnMovePanelRight:(id)sender
+{
+    NSLog(@"press button");
+    UIButton *button = sender;
+    switch (button.tag) {
+        case 0: {
+            [_delegate movePanelToOriginalPosition];
+            break;
+        }
+            
+        case 1: {
+            [_delegate movePanelRight];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+- (IBAction)btnMovePanelLeft:(id)sender
+{
+    UIButton *button = sender;
+    switch (button.tag) {
+        case 0: {
+            [_delegate movePanelToOriginalPosition];
+            break;
+        }
+            
+        case 1: {
+            [_delegate movePanelLeft];
+            break;
+        }
+            
+        default:
+            break;
+    }
+}
+
+#pragma mark -
+#pragma mark Delagate Method for capturing selected image
+
+/*
+ note: typically, you wouldn't create "duplicate" delagate methods, but we went with simplicity.
+ doing it this way allowed us to show how to use the #define statement and the switch statement.
+ */
+
+-(void)movePanelRight {
+    [_delegate movePanelToOriginalPosition];
+}
+
+//- (void)imageSelected:(UIImage *)image withTitle:(NSString *)imageTitle withCreator:(NSString *)imageCreator
+//{
+//    // only change the main display if an animal/image was selected
+//    if (image)
+//    {
+//        self.mainImageView.image = image;
+//        self.imageTitle.text = [NSString stringWithFormat:@"%@", imageTitle];
+//        self.imageCreator.text = [NSString stringWithFormat:@"%@", imageCreator];
+//    }
+//}
+
+//- (void)animalSelected:(Animal *)animal
+//{
+//    // only change the main display if an animal/image was selected
+//    if (animal)
+//    {
+//        [self showAnimalSelected:animal];
+//    }
+//}
+//
+//// setup the imageview with our selected animal
+//- (void)showAnimalSelected:(Animal *)animalSelected
+//{
+//    self.mainImageView.image = animalSelected.image;
+//    self.imageTitle.text = [NSString stringWithFormat:@"%@", animalSelected.title];
+//    self.imageCreator.text = [NSString stringWithFormat:@"%@", animalSelected.creator];
+//}
+
 
 
 - (void)didReceiveMemoryWarning
