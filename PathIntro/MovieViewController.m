@@ -7,7 +7,7 @@
 //
 
 #import "MovieViewController.h"
-
+#import "Constants.h"
 
 @interface MovieViewController () {
     int pageNumber;
@@ -48,6 +48,15 @@
     self.scrollView.delegate = self;
     self.scrollView.backgroundColor = [UIColor clearColor];
     
+    self.view.backgroundColor = UIColorFromRGB(navColor);
+    [[UINavigationBar appearance] setBarTintColor:UIColorFromRGB(navColor)];
+    
+//    NSShadow *shadow = [[NSShadow alloc] init];
+//    shadow.shadowColor = [UIColor colorWithRed:0.0 green:0.0 blue:0.0 alpha:0.8];
+//    shadow.shadowOffset = CGSizeMake(0, 1);
+    
+    [[UINavigationBar appearance] setTitleTextAttributes: [NSDictionary dictionaryWithObjectsAndKeys:
+            UIColorFromRGB(navTextColor), NSForegroundColorAttributeName,nil]];
     
 }
 

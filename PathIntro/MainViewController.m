@@ -83,8 +83,6 @@
 
 - (void)setupView
 {
-    // setup center view
-//    self.centerViewController = [[CenterViewController alloc] initWithNibName:@"CenterViewController" bundle:nil];
     
     UIStoryboard *storyboard;
     storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
@@ -146,8 +144,6 @@
     if (_leftPanelViewController == nil)
     {
         // this is where you define the view for the left panel
-        
-//        self.leftPanelViewController = [[LeftViewController alloc] initWithNibName:@"LeftPanelViewController" bundle:nil];
         UIStoryboard *storyboard;
         storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
         
@@ -353,5 +349,10 @@
 {
     [super didReceiveMemoryWarning];
 }
+
+//-(UIStatusBarStyle)preferredStatusBarStyle
+//{
+//    return UIStatusBarStyleLightContent;
+//}
 
 @end

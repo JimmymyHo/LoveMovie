@@ -68,8 +68,13 @@
     // load the visible page
     // load the page on either side to avoid flashes when the user starts scrolling
     //
+    
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
+    
+//    for (int i=0; i<20; i++) {
+//        [self loadScrollViewWithPage:i];
+//    }
 
 }
 
@@ -105,7 +110,7 @@
         [controller didMoveToParentViewController:self];
         
         //NSDictionary *numberItem = [self.movieList objectAtIndex:page];
-        controller.numberImage.image = [UIImage imageNamed:@"image1.jpg"];
+        controller.numberImage.image = [UIImage imageNamed:@"image2.jpg"];
         controller.numberImageWithBlur.image = [controller.numberImage.image applyLightEffect];
         controller.numberImageWithBlur.alpha = 0;
         controller.numberTitle.text = @"全家就是米家";

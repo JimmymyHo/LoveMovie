@@ -50,6 +50,7 @@
 		0A761C8C172EAC5900B2A609 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0A761C8E172EAC5900B2A609 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0A761CB2172F075900B2A609 /* shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow@2x.png"; sourceTree = "<group>"; };
+		0E0A6782180F8C57000EA2FA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0E1DFDD417FDC5CB00313F72 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0E1DFDD617FDC5F100313F72 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
 		0E1DFDD717FDC5F100313F72 /* CenterViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CenterViewController.m; sourceTree = "<group>"; };
@@ -125,6 +126,7 @@
 				0EAA0E511801639D002B7D76 /* Categories */,
 				0A761C87172EAC5900B2A609 /* AppDelegate.h */,
 				0A761C88172EAC5900B2A609 /* AppDelegate.m */,
+				0E0A6782180F8C57000EA2FA /* Constants.h */,
 				0EE15B0B180AF16300B4FD06 /* MainViewController.h */,
 				0EE15B0C180AF16300B4FD06 /* MainViewController.m */,
 				0E1DFDD617FDC5F100313F72 /* CenterViewController.h */,
