@@ -49,9 +49,6 @@
     }
     self.viewControllers = controllers;
     
-    
-    
-    
     // a page is the width of the scroll view
     self.scrollView.pagingEnabled = YES;
     self.scrollView.contentSize =
@@ -61,17 +58,12 @@
     self.scrollView.scrollsToTop = NO;
     self.scrollView.delegate = self;
     
-//    self.pageControl.numberOfPages = numberPages;
-//    self.pageControl.currentPage = 0;
-    
     // pages are created on demand
     // load the visible page
     // load the page on either side to avoid flashes when the user starts scrolling
-    //
-    
     [self loadScrollViewWithPage:0];
     [self loadScrollViewWithPage:1];
-    
+    [self loadScrollViewWithPage:2];
 //    for (int i=0; i<20; i++) {
 //        [self loadScrollViewWithPage:i];
 //    }
@@ -94,6 +86,7 @@
     {
         //controller = [[MovieViewController alloc] initWithPageNumber:page];
         controller = [storyboard instantiateViewControllerWithIdentifier:@"Movie"];
+        controller.page = page;
         [self.viewControllers replaceObjectAtIndex:page withObject:controller];
     }
     
@@ -111,14 +104,29 @@
         
         //NSDictionary *numberItem = [self.movieList objectAtIndex:page];
         controller.numberImage.image = [UIImage imageNamed:@"image2.jpg"];
-        controller.numberImageWithBlur.image = [controller.numberImage.image applyLightEffect];
+        //controller.numberImageWithBlur.image = [controller.numberImage.image applyLightEffect];
         controller.numberImageWithBlur.alpha = 0;
         controller.numberTitle.text = @"全家就是米家";
     }
-    
+    NSLog(@"load one view success");
 
 }
 
+- (void)unloadScrollVieweWithPage:(NSInteger)page {
+//    if (page < 0 || page >= self.movieList.count) {
+//        // If it's outside the range of what we have to display, then do nothing
+//        return;
+//    }
+//    
+//    // Remove a page from the scroll view and reset the container array
+//    MovieViewController *pageView = [self.viewControllers objectAtIndex:page];
+//    if ((NSNull*)pageView != [NSNull null]) {
+//        [pageView.view removeFromSuperview];
+//        [pageView removeFromParentViewController];
+//        [self.viewControllers replaceObjectAtIndex:page withObject:[NSNull null]];
+//    }
+}
+int jimmy;
 // at the end of scroll animation, reset the boolean used when scrolls originate from the UIPageControl
 - (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
 {
@@ -126,13 +134,35 @@
     CGFloat pageWidth = CGRectGetWidth(self.scrollView.frame);
     NSUInteger page = floor((self.scrollView.contentOffset.x - pageWidth / 2) / pageWidth) + 1;
     self.pageControl.currentPage = page;
-    
-    // load the visible page and the page on either side of it (to avoid flashes when the user starts scrolling)
-    [self loadScrollViewWithPage:page - 1];
-    [self loadScrollViewWithPage:page];
-    [self loadScrollViewWithPage:page + 1];
-    
+
+    // Work out which pages we want to load
+    NSInteger firstPage = page - 3;
+    NSInteger lastPage = page + 3;
+    if (firstPage < 0) {
+        firstPage = 0;
+    }
+    if (lastPage > 20) {
+        lastPage = 20;
+    }
+    // Purge anything before the first page
+    for (NSInteger i=0; i<firstPage; i++) {
+        [self unloadScrollVieweWithPage:i];
+    }
+    for (NSInteger i=firstPage; i<=lastPage; i++) {
+        [self loadScrollViewWithPage:i];
+    }
+    for (NSInteger i=lastPage+1; i<self.movieList.count; i++) {
+        [self unloadScrollVieweWithPage:i];
+    }
     // a possible optimization would be to unload the views+controllers which are no longer visible
+    for (int i=0; i<20; i++) {
+        if ([self.viewControllers objectAtIndex:i] != [NSNull null]) {
+            jimmy++;
+
+        }
+    }
+    NSLog(@"jimmy=%i",jimmy);
+    jimmy = 0;
 
 }
 

@@ -17,6 +17,9 @@
 		0A761C8D172EAC5900B2A609 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A761C8C172EAC5900B2A609 /* Default@2x.png */; };
 		0A761C8F172EAC5900B2A609 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A761C8E172EAC5900B2A609 /* Default-568h@2x.png */; };
 		0A761CB3172F075900B2A609 /* shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A761CB2172F075900B2A609 /* shadow@2x.png */; };
+		0E073147181282A800424479 /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E073145181282A800424479 /* AWSRuntime.framework */; };
+		0E073148181282A800424479 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E073146181282A800424479 /* AWSS3.framework */; };
+		0E073151181286BF00424479 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E073150181286BF00424479 /* Constants.m */; };
 		0E1DFDD517FDC5CB00313F72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1DFDD417FDC5CB00313F72 /* Main.storyboard */; };
 		0E1DFDD817FDC5F100313F72 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DFDD717FDC5F100313F72 /* CenterViewController.m */; };
 		0E1DFDDB17FDC65E00313F72 /* MovieViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DFDDA17FDC65E00313F72 /* MovieViewController.m */; };
@@ -32,6 +35,8 @@
 		0EAA0E881801639D002B7D76 /* UIImage+Resize.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA0E571801639D002B7D76 /* UIImage+Resize.m */; };
 		0EAA0E891801639D002B7D76 /* UIImage+RoundedCorner.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EAA0E591801639D002B7D76 /* UIImage+RoundedCorner.m */; };
 		0EAA0EA61801645A002B7D76 /* Accelerate.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0EAA0EA518016459002B7D76 /* Accelerate.framework */; };
+		0EB7BF2E1815760C0090F39D /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7BF2D1815760C0090F39D /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
+		0EB7BF34181577CB0090F39D /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7BF33181577CB0090F39D /* DataSource.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EE15B0D180AF16300B4FD06 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE15B0C180AF16300B4FD06 /* MainViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -50,6 +55,10 @@
 		0A761C8C172EAC5900B2A609 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0A761C8E172EAC5900B2A609 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0A761CB2172F075900B2A609 /* shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow@2x.png"; sourceTree = "<group>"; };
+		0E073145181282A800424479 /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSRuntime.framework; sourceTree = "<group>"; };
+		0E073146181282A800424479 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
+		0E073150181286BF00424479 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
+		0E0731521812874A00424479 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		0E0A6782180F8C57000EA2FA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
 		0E1DFDD417FDC5CB00313F72 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
 		0E1DFDD617FDC5F100313F72 /* CenterViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CenterViewController.h; sourceTree = "<group>"; };
@@ -73,6 +82,9 @@
 		0EAA0E581801639D002B7D76 /* UIImage+RoundedCorner.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+RoundedCorner.h"; sourceTree = "<group>"; };
 		0EAA0E591801639D002B7D76 /* UIImage+RoundedCorner.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+RoundedCorner.m"; sourceTree = "<group>"; };
 		0EAA0EA518016459002B7D76 /* Accelerate.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Accelerate.framework; path = System/Library/Frameworks/Accelerate.framework; sourceTree = SDKROOT; };
+		0EB7BF2D1815760C0090F39D /* AmazonClientManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AmazonClientManager.m; sourceTree = "<group>"; };
+		0EB7BF32181577CB0090F39D /* DataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DataSource.h; sourceTree = "<group>"; };
+		0EB7BF33181577CB0090F39D /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		0EE15B0B180AF16300B4FD06 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		0EE15B0C180AF16300B4FD06 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -84,7 +96,9 @@
 			files = (
 				0EAA0EA61801645A002B7D76 /* Accelerate.framework in Frameworks */,
 				0A761C79172EAC5900B2A609 /* UIKit.framework in Frameworks */,
+				0E073148181282A800424479 /* AWSS3.framework in Frameworks */,
 				0A761C7B172EAC5900B2A609 /* Foundation.framework in Frameworks */,
+				0E073147181282A800424479 /* AWSRuntime.framework in Frameworks */,
 				0A761C7D172EAC5900B2A609 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -112,6 +126,8 @@
 		0A761C77172EAC5900B2A609 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0E073145181282A800424479 /* AWSRuntime.framework */,
+				0E073146181282A800424479 /* AWSS3.framework */,
 				0EAA0EA518016459002B7D76 /* Accelerate.framework */,
 				0A761C78172EAC5900B2A609 /* UIKit.framework */,
 				0A761C7A172EAC5900B2A609 /* Foundation.framework */,
@@ -123,10 +139,12 @@
 		0A761C7E172EAC5900B2A609 /* LoveMovie */ = {
 			isa = PBXGroup;
 			children = (
+				0E0A6782180F8C57000EA2FA /* Constants.h */,
+				0E073150181286BF00424479 /* Constants.m */,
+				0E07314C181285E300424479 /* Amazon */,
 				0EAA0E511801639D002B7D76 /* Categories */,
 				0A761C87172EAC5900B2A609 /* AppDelegate.h */,
 				0A761C88172EAC5900B2A609 /* AppDelegate.m */,
-				0E0A6782180F8C57000EA2FA /* Constants.h */,
 				0EE15B0B180AF16300B4FD06 /* MainViewController.h */,
 				0EE15B0C180AF16300B4FD06 /* MainViewController.m */,
 				0E1DFDD617FDC5F100313F72 /* CenterViewController.h */,
@@ -161,6 +179,17 @@
 				0A761C8E172EAC5900B2A609 /* Default-568h@2x.png */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		0E07314C181285E300424479 /* Amazon */ = {
+			isa = PBXGroup;
+			children = (
+				0E0731521812874A00424479 /* AmazonClientManager.h */,
+				0EB7BF2D1815760C0090F39D /* AmazonClientManager.m */,
+				0EB7BF32181577CB0090F39D /* DataSource.h */,
+				0EB7BF33181577CB0090F39D /* DataSource.m */,
+			);
+			name = Amazon;
 			sourceTree = "<group>";
 		};
 		0EAA0E511801639D002B7D76 /* Categories */ = {
@@ -252,11 +281,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0EB7BF2E1815760C0090F39D /* AmazonClientManager.m in Sources */,
 				0E8110FA1803E85400B3E724 /* LeftViewController.m in Sources */,
 				0EAA0E891801639D002B7D76 /* UIImage+RoundedCorner.m in Sources */,
+				0EB7BF34181577CB0090F39D /* DataSource.m in Sources */,
 				0A761C85172EAC5900B2A609 /* main.m in Sources */,
 				0EE15B0D180AF16300B4FD06 /* MainViewController.m in Sources */,
 				0A761C89172EAC5900B2A609 /* AppDelegate.m in Sources */,
+				0E073151181286BF00424479 /* Constants.m in Sources */,
 				0EAA0E871801639D002B7D76 /* UIImage+ImageEffects.m in Sources */,
 				0E1DFDD817FDC5F100313F72 /* CenterViewController.m in Sources */,
 				0EAA0E861801639D002B7D76 /* UIImage+Alpha.m in Sources */,
@@ -338,6 +370,10 @@
 		0A761C93172EAC5900B2A609 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/y03131003/Desktop/LoveMovie,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PathIntro/LoveMovie-Prefix.pch";
 				INFOPLIST_FILE = "PathIntro/LoveMovie-Info.plist";
@@ -351,6 +387,10 @@
 		0A761C94172EAC5900B2A609 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					/Users/y03131003/Desktop/LoveMovie,
+				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PathIntro/LoveMovie-Prefix.pch";
 				INFOPLIST_FILE = "PathIntro/LoveMovie-Info.plist";

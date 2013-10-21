@@ -8,7 +8,9 @@
 
 #import "MovieViewController.h"
 #import "Constants.h"
-
+#import "DataSource.h"
+#import "AmazonClientManager.h"
+#import "UIImage+ImageEffects.h"
 @interface MovieViewController () {
     int pageNumber;
 }
@@ -26,21 +28,44 @@
     return self;
 }
 
-// load the view nib and initialize the pageNumber ivar
-- (id)initWithPageNumber:(NSUInteger)page
-{
-    if (self = [super initWithNibName:@"MovieView" bundle:nil])
-    {
-        pageNumber = page;
+-(UIImage*)getPoster:(int)page {
+    
+    NSString *posterName = [NSString stringWithFormat:@"%d.png",page];
+    NSLog(@"%@",posterName);
+    __block UIImage *image;
+    
+    dispatch_queue_t queue = dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0);
+    dispatch_async(queue, ^{
         
-    }
-    return self;
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:YES];
+        });
+        
+        S3GetObjectRequest  *getObjectRequest  = [[S3GetObjectRequest alloc] initWithKey:posterName withBucket:@"movielist"];
+        S3GetObjectResponse *getObjectResponse = [[AmazonClientManager s3] getObject:getObjectRequest];
+        if(getObjectResponse.error != nil)
+        {
+            NSLog(@"Error: %@", getObjectResponse.error);
+        }
+        
+        dispatch_async(dispatch_get_main_queue(), ^{
+            
+            [[UIApplication sharedApplication] setNetworkActivityIndicatorVisible:NO];
+            image = [[UIImage alloc] initWithData:getObjectResponse.body];
+            self.numberImage.image = [[UIImage alloc] initWithData:getObjectResponse.body];
+            self.numberImageWithBlur.image = [self.numberImage.image applyLightEffect];
+        });
+    });
+    return image;
 }
+
 
 - (void)viewDidLoad
 {
     [super viewDidLoad];
-	
+    //self.numberImage.image = [[DataSource shareDataSource] getPoster:self.page];
+    [self getPoster:self.page];
     self.pageNumberLabel.text = [NSString stringWithFormat:@"Page %d", pageNumber + 1];
     
     self.scrollView.contentSize = CGSizeMake(320, 1000);
