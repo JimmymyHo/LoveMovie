@@ -61,12 +61,12 @@
     // pages are created on demand
     // load the visible page
     // load the page on either side to avoid flashes when the user starts scrolling
-    [self loadScrollViewWithPage:0];
-    [self loadScrollViewWithPage:1];
-    [self loadScrollViewWithPage:2];
-//    for (int i=0; i<20; i++) {
-//        [self loadScrollViewWithPage:i];
-//    }
+//    [self loadScrollViewWithPage:0];
+//    [self loadScrollViewWithPage:1];
+//    [self loadScrollViewWithPage:2];
+    for (int i=0; i<20; i++) {
+        [self loadScrollViewWithPage:i];
+    }
 
 }
 
@@ -177,6 +177,7 @@ int jimmy;
     for (id temp in self.viewControllers) {
         if (temp != [NSNull null]) {
             MovieViewController *controller = temp;
+            //bug
             [controller.scrollView setContentOffset:CGPointMake(0, nowController.scrollView.contentOffset.y)];
         }
     }
