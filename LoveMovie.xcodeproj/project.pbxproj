@@ -17,8 +17,6 @@
 		0A761C8D172EAC5900B2A609 /* Default@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A761C8C172EAC5900B2A609 /* Default@2x.png */; };
 		0A761C8F172EAC5900B2A609 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A761C8E172EAC5900B2A609 /* Default-568h@2x.png */; };
 		0A761CB3172F075900B2A609 /* shadow@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 0A761CB2172F075900B2A609 /* shadow@2x.png */; };
-		0E073147181282A800424479 /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E073145181282A800424479 /* AWSRuntime.framework */; };
-		0E073148181282A800424479 /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0E073146181282A800424479 /* AWSS3.framework */; };
 		0E073151181286BF00424479 /* Constants.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E073150181286BF00424479 /* Constants.m */; };
 		0E1DFDD517FDC5CB00313F72 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0E1DFDD417FDC5CB00313F72 /* Main.storyboard */; };
 		0E1DFDD817FDC5F100313F72 /* CenterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0E1DFDD717FDC5F100313F72 /* CenterViewController.m */; };
@@ -38,6 +36,8 @@
 		0EB7BF2E1815760C0090F39D /* AmazonClientManager.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7BF2D1815760C0090F39D /* AmazonClientManager.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EB7BF34181577CB0090F39D /* DataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EB7BF33181577CB0090F39D /* DataSource.m */; settings = {COMPILER_FLAGS = "-fno-objc-arc"; }; };
 		0EE15B0D180AF16300B4FD06 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 0EE15B0C180AF16300B4FD06 /* MainViewController.m */; };
+		3224B641181BD85300847BBC /* AWSRuntime.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3224B63F181BD85300847BBC /* AWSRuntime.framework */; };
+		3224B642181BD85300847BBC /* AWSS3.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 3224B640181BD85300847BBC /* AWSS3.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,8 +55,6 @@
 		0A761C8C172EAC5900B2A609 /* Default@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default@2x.png"; sourceTree = "<group>"; };
 		0A761C8E172EAC5900B2A609 /* Default-568h@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Default-568h@2x.png"; sourceTree = "<group>"; };
 		0A761CB2172F075900B2A609 /* shadow@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "shadow@2x.png"; sourceTree = "<group>"; };
-		0E073145181282A800424479 /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSRuntime.framework; sourceTree = "<group>"; };
-		0E073146181282A800424479 /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
 		0E073150181286BF00424479 /* Constants.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Constants.m; sourceTree = "<group>"; };
 		0E0731521812874A00424479 /* AmazonClientManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AmazonClientManager.h; sourceTree = "<group>"; };
 		0E0A6782180F8C57000EA2FA /* Constants.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Constants.h; sourceTree = "<group>"; };
@@ -87,6 +85,8 @@
 		0EB7BF33181577CB0090F39D /* DataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DataSource.m; sourceTree = "<group>"; };
 		0EE15B0B180AF16300B4FD06 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
 		0EE15B0C180AF16300B4FD06 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		3224B63F181BD85300847BBC /* AWSRuntime.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSRuntime.framework; sourceTree = "<group>"; };
+		3224B640181BD85300847BBC /* AWSS3.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = AWSS3.framework; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -96,9 +96,9 @@
 			files = (
 				0EAA0EA61801645A002B7D76 /* Accelerate.framework in Frameworks */,
 				0A761C79172EAC5900B2A609 /* UIKit.framework in Frameworks */,
-				0E073148181282A800424479 /* AWSS3.framework in Frameworks */,
+				3224B642181BD85300847BBC /* AWSS3.framework in Frameworks */,
 				0A761C7B172EAC5900B2A609 /* Foundation.framework in Frameworks */,
-				0E073147181282A800424479 /* AWSRuntime.framework in Frameworks */,
+				3224B641181BD85300847BBC /* AWSRuntime.framework in Frameworks */,
 				0A761C7D172EAC5900B2A609 /* CoreGraphics.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -126,8 +126,8 @@
 		0A761C77172EAC5900B2A609 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				0E073145181282A800424479 /* AWSRuntime.framework */,
-				0E073146181282A800424479 /* AWSS3.framework */,
+				3224B63F181BD85300847BBC /* AWSRuntime.framework */,
+				3224B640181BD85300847BBC /* AWSS3.framework */,
 				0EAA0EA518016459002B7D76 /* Accelerate.framework */,
 				0A761C78172EAC5900B2A609 /* UIKit.framework */,
 				0A761C7A172EAC5900B2A609 /* Foundation.framework */,
@@ -236,6 +236,11 @@
 			attributes = {
 				LastUpgradeCheck = 0460;
 				ORGANIZATIONNAME = "Dmitry Kondratyev";
+				TargetAttributes = {
+					0A761C74172EAC5900B2A609 = {
+						DevelopmentTeam = QKNZ2N2P2F;
+					};
+				};
 			};
 			buildConfigurationList = 0A761C70172EAC5900B2A609 /* Build configuration list for PBXProject "LoveMovie" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -370,14 +375,17 @@
 		0A761C93172EAC5900B2A609 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/y03131003/Desktop/LoveMovie,
+					"/Users/jimmyho/Downloads/aws-ios-sdk-1.7.0",
+					/Users/jimmyho/Desktop/LoveMovie,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PathIntro/LoveMovie-Prefix.pch";
 				INFOPLIST_FILE = "PathIntro/LoveMovie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = LoveMovie;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
@@ -387,14 +395,17 @@
 		0A761C94172EAC5900B2A609 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					/Users/y03131003/Desktop/LoveMovie,
+					"/Users/jimmyho/Downloads/aws-ios-sdk-1.7.0",
+					/Users/jimmyho/Desktop/LoveMovie,
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "PathIntro/LoveMovie-Prefix.pch";
 				INFOPLIST_FILE = "PathIntro/LoveMovie-Info.plist";
-				IPHONEOS_DEPLOYMENT_TARGET = 6.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 7.0;
 				PRODUCT_NAME = LoveMovie;
 				TARGETED_DEVICE_FAMILY = 1;
 				WRAPPER_EXTENSION = app;
